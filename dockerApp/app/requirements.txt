@@ -1,0 +1,4 @@
+Flask
+Flask-MySQL
+PyMySQL
+Flask-SQLAlchemy

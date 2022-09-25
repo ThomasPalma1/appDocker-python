@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+  </head>
+  <body>
+    <h1>Employee Registration</h1>
+    <hr>
+    <form action="{{url_for('register')}}" method="POST">
+      <table>
+        <tr>
+          <td>Name: </td>
+          <td>
+            <input type="text" name="name">
+          </td>
+        </tr>
+      </table>
+      <br>
+      <input type="submit" value="Save employee" />
+    </form>
+  </body>
+</html>
