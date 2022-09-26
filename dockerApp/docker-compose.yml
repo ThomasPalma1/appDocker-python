@@ -1,4 +1,4 @@
-version:
+version: '3.8'
 services:
   app:
     container_name: admiring_edison
@@ -7,11 +7,11 @@ services:
       - "8080:8080"
     build:
       context: .
-      dockerfile: ./dockerApp/app/Dockerfile
+      dockerfile: ./app/Dockerfile
     depends_on:
-      - database
+      - db
   db:
-    container_name:
+    container_name: db
     image: docker-app-mysql
     ports:
       - "3306:3036"
@@ -22,4 +22,4 @@ services:
       MYSQL_PASSWORD: qwerty-thomas
     build:
       context: .
-      dockerfile: ./dockerApp/sqlDocker/Dockerfile
+      dockerfile: ./sqlDocker/Dockerfile
