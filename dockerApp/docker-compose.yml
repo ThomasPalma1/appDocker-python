@@ -1,0 +1,25 @@
+version:
+services:
+  app:
+    container_name:
+    image: docker-app
+    ports:
+      - "8080:8080"
+    build:
+      context: .
+      dockerfile: ./dockerApp/app/Dockerfile
+    depends_on:
+      - database
+  db:
+    container_name:
+    image: docker-app-mysql
+    ports:
+      - "3306:3036"
+    environment:
+      MYSQL_ROOT_PASSWORD: 56248
+      MYSQL_DATABASE: appDocker
+      MYSQL_USER: thomas
+      MYSQL_PASSWORD: qwerty-thomas
+    build:
+      context: .
+      dockerfile: ./dockerApp/db/Dockerfile
