@@ -2,7 +2,6 @@ version: '3.8'
 services:
   app:
     container_name: appDocker
-    image: docker-app
     ports:
       - "8080:8080"
     build:
@@ -11,10 +10,9 @@ services:
     depends_on:
       - db
   db:
-    container_name: db
-    image: docker-app-mysql
+    container_name: dbDocker
     ports:
-      - "33061:33061"
+      - "3306:3306"
     environment:
       MYSQL_ROOT_PASSWORD: 56248
       MYSQL_DATABASE: appDocker
