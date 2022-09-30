@@ -10,14 +10,19 @@ services:
     depends_on:
       - db
   db:
+    image: mysql
+    command: --default-authentication-plugin=mysql_native_password
+    restart: always
     container_name: dbDocker
     ports:
-      - "3306:3306"
+      - "13306:3306"
+    volumes:
+      - db:
     environment:
       MYSQL_ROOT_PASSWORD: 56248
       MYSQL_DATABASE: appDocker
-      MYSQL_USER: thomaspalma
-      MYSQL_PASSWORD: qwerty-thomas
-    build:
-      context: .
-      dockerfile: ./sqlDocker/Dockerfile
+      # MYSQL_USER: thomaspalma
+      # MYSQL_PASSWORD: qwerty-thomas
+    # build:
+      # context: .
+      # dockerfile: ./sqlDocker/Dockerfile
