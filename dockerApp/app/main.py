@@ -3,8 +3,9 @@ from flask_sqlalchemy import SQLAlchemy
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-app.config['SQLALCHEMY_DATABASE_URI'] = 'mariadb+pymysql://thomas:56248@0.0.0.0/appDocker'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'mariadb+pymysql://thomas:56248@192.168.43.153/appDocker'
 db = SQLAlchemy(app)
+app.app_context().push()
 
 
 class Employee(db.Model):

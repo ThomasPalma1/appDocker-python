@@ -15,9 +15,9 @@ services:
     ports:
       - "13306:3306"
     environment:
-      MYSQL_ROOT_PASSWORD: 56248
       MYSQL_DATABASE: appDocker
-      MYSQL_USER: root
+      MYSQL_USER: thomas
+      MYSQL_ROOT_PASSWORD: 56248
       MYSQL_PASSWORD: 56248
     build:
       context: .
