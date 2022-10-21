@@ -1,9 +1,10 @@
 from flask import Flask, render_template, request, url_for, redirect
 from flask_sqlalchemy import SQLAlchemy
+from ip_address import getting_ip
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-app.config['SQLALCHEMY_DATABASE_URI'] = 'mariadb+pymysql://thomas:56248@192.168.43.153/appDocker'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'mariadb+pymysql://thomas:56248@' + getting_ip() + '/appDocker'
 db = SQLAlchemy(app)
 app.app_context().push()
 
@@ -59,7 +60,6 @@ def delete(id):
     employees = Employee.query.all()
 
     return redirect("/employees_list")
-    # return render_template("list.html", employees=employees)
 
 
 def redirect_user():
